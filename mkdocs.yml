@@ -1,0 +1,15 @@
+site_name: Scroll
+
+nav:
+  - Home: 'index.md'
+  - Descriptor: 'descriptor.md'
+  - Debug: 'debug.md'
+  - Base: 'base.md'
+
+theme:
+  name: "material"
+
+plugins:
+  - search
+  - mkdocstrings
+
