@@ -42,13 +42,12 @@ def test_raises_ValueError():
         @debug('[DEBUG]')
         def add_with_arg(a: int, b: int) -> int:
             return a + b
-        
-        
+
+
 def test_wrap_dgbmeth(capfd):
     foo = Foo()
-    
+
     foo.baz()
-    
+
     captured = capfd.readouterr()
     assert captured.out == "Called Foo.baz\n"
-    
