@@ -36,18 +36,21 @@ class StructMeta(type):
         args = []
         kwargs = []
 
+        fields = {}
+
         for key, value in clsdict.items():
             if isinstance(value, Descriptor):
                 if isinstance(value, Default):
                     kwargs.append(key)
                 else:
                     args.append(key)
+                fields[key] = value
 
         for name in args + kwargs:
             clsdict[name].name = name
 
         clsobj = super().__new__(cls, clsname, bases, dict(clsdict))
-        setattr(clsobj, '__fields__', args + kwargs)
+        setattr(clsobj, '__fields__', fields)
 
         sig = create_signature(args, kwargs)
         setattr(clsobj, '__signature__', sig)
