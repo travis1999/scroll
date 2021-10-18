@@ -1,0 +1,18 @@
+scheme
+
+X.Y.ZaN   # Alpha release
+X.Y.ZbN   # Beta release
+X.Y.ZrcN  # Release Candidate
+X.Y.Z     # Final release
+
+workflow
+
+bumpversion patch # 3.0.0.a0 → 3.0.1.a0
+bumpversion n # 3.0.1.a0 → 3.0.1.a1
+bumpversion release # 3.0.1.a1 → 3.0.1.b0
+bumpversion release # 3.0.1.b0 → 3.0.1.rc0
+bumpversion release # 3.0.1.rc0 → 3.0.1
+bumpversion minor # 3.0.1 → 3.1.0.a0
+bumpversion major # 3.1.0.a0 → 4.0.0.a0
+bumpversion n # 4.0.0.a0 → 4.0.0.a1
+bumpversion release --tag # 4.0.0.a1 → 4.0.0.b0
