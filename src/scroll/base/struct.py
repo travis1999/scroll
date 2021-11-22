@@ -54,6 +54,9 @@ class StructMeta(type):
 
         sig = create_signature(args, kwargs)
         setattr(clsobj, '__signature__', sig)
+        
+        if hasattr(clsobj, '__cls_init__'):
+            getattr(clsobj, '__cls_init__')(clsobj)
 
         return clsobj
 
